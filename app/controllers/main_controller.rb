@@ -9,13 +9,21 @@ class MainController < ApplicationController
     token = params['stripeToken']
     Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 
-    charge = Stripe::Charge.create({
-      amount: 999,
-      currency: 'usd',
-      description: 'Example charge',
-      source: token
-    })
+    begin
+      charge = Stripe::Charge.create({
+        amount: 999,
+        currency: 'usd',
+        description: 'Example charge',
+        source: token
+      })
+      puts "Submitted charge: #{charge}"
+      redirect_to :success
+    rescue Stripe::CardError => e
+      @error = e
+      render :buy
+    end
+  end
 
-    puts charge
+  def success
   end
 end

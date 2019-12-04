@@ -53,7 +53,10 @@
     </script>
   </head>
   <body>
-    <%= form_with(url: "/main", method: "post", id: "payment-form") do %>
+    <% if @error %>
+      <p style="color:red">Big scary</p>
+    <% end %>
+    <%= form_with(url: "/buy", method: "post", id: "payment-form") do %>
       <div class="form-row">
         <%= label_tag("card-element", "Credit or debit card") %>
         <div id="card-element">
