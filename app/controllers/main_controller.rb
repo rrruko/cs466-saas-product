@@ -19,8 +19,8 @@ class MainController < ApplicationController
       puts "Submitted charge: #{charge}"
 
       cust = Customer.new
-      cust.name = 'blah'
-      cust.email = 'blah'
+      cust.name = params['name']
+      cust.email = params['email']
       cust.charge_id = charge['id']
       cust.save
 
