@@ -17,6 +17,13 @@ class MainController < ApplicationController
         source: token
       })
       puts "Submitted charge: #{charge}"
+
+      cust = Customer.new
+      cust.name = 'blah'
+      cust.email = 'blah'
+      cust.charge_id = charge['id']
+      cust.save
+
       redirect_to :success
     rescue Stripe::CardError => e
       @error = e
