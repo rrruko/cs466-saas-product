@@ -1,69 +1,136 @@
 <html>
+  <meta charset="utf-8">
   <head>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-      function stripeTokenHandler(token) {
-        // Insert the token ID into the form so it gets submitted to the server
-        var form = document.getElementById('payment-form');
-        var hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('type', 'hidden');
-        hiddenInput.setAttribute('name', 'stripeToken');
-        hiddenInput.setAttribute('value', token.id);
-        form.appendChild(hiddenInput);
-
-        // Submit the form
-        form.submit();
-      }
-      document.addEventListener('DOMContentLoaded', e => {
-        // Set your publishable key: remember to change this to your live publishable key in production
-        // See your keys here: https://dashboard.stripe.com/account/apikeys
-        var stripe = Stripe('pk_test_M3pISp5AlHVCyvQOYjKmoU2K00Q7nklmjC');
-        var elements = stripe.elements();
-        // Custom styling can be passed to options when creating an Element.
-        var style = {
-          base: {
-            // Add your base input styles here. For example:
-            fontSize: '16px',
-            color: "#32325d",
-          }
-        };
-
-        // Create an instance of the card Element.
-        var card = elements.create('card', {style: style});
-
-        // Add an instance of the card Element into the `card-element` <div>.
-        card.mount('#card-element');
-        // Create a token or display an error when the form is submitted.
-        var form = document.getElementById('payment-form');
-        form.addEventListener('submit', function(event) {
-          event.preventDefault();
-
-          stripe.createToken(card).then(function(result) {
-            if (result.error) {
-              // Inform the customer that there was an error.
-              var errorElement = document.getElementById('card-errors');
-              errorElement.textContent = result.error.message;
-            } else {
-              // Send the token to your server.
-              stripeTokenHandler(result.token);
-            }
-          });
-        });
-      });
-    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous">
   </head>
-  <body>
-    <%= form_with(url: "/main", method: "post", id: "payment-form") do %>
-      <div class="form-row">
-        <%= label_tag("card-element", "Credit or debit card") %>
-        <div id="card-element">
-          <!-- A Stripe Element will be inserted here. -->
-        </div>
 
-        <!-- Used to display Element errors. -->
-        <div id="card-errors" role="alert"></div>
-        <%= submit_tag("Submit Payment") %>
+  <script>
+    document.addEventListener('DOMContentLoaded', e => {
+      document.getElementById('buy-now').addEventListener('click', e => {
+        window.location = 'buy'
+      })
+    })
+  </script>
+
+  <style>
+    .box {
+      margin-left: 10em;
+      margin-right: 10em;
+    }
+    .title {
+      display: block;
+      text-align: center;
+    }
+    .button {
+      margin: auto;
+      display: block;
+      text-align: center;
+    }
+    .hero-body {
+      text-align: center;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <section class="hero">
+        <div class="hero-body">
+          <div class="title">DYNAMIC-DEN</div>
+          <p>
+            DYNAMIC-DEN is the best software ever made for scheduling flex time periods.
+            <br>
+            Don't bother with spreadsheet plug-ins that don't work.
+            <br>
+            Save time with DYNAMIC-DEN.
+          </p>
+
+        </div>
+      </section>
+
+      <button class="box button is-success" id="buy-now">
+        BUY NOW
+      </button>
+
+      <div class="title">Customer testimonials</div>
+
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-128x128">
+              <img src="https://media.jorts.horse/horse-media/media_attachments/files/000/670/063/original/f14c59940fd41397.jpg" alt="Image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Jack Nicholson</strong> <small>Principal of Jack Nicholson Middle School</small>
+                <br>
+                Before using DYNAMIC-DEN® I prayed to God each day to release me from the chains of life.
+              </p>
+            </div>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" aria-label="reply">
+                  <span class="icon is-small">
+                    <i class="fas fa-reply" aria-hidden="true"></i>
+                  </span>
+                </a>
+                <a class="level-item" aria-label="retweet">
+                  <span class="icon is-small">
+                    <i class="fas fa-retweet" aria-hidden="true"></i>
+                  </span>
+                </a>
+                <a class="level-item" aria-label="like">
+                  <span class="icon is-small">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </article>
       </div>
-    <% end %>
+
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <figure class="image is-128x128">
+              <img src="https://video-images.vice.com/articles/5d3f171b172d6400085ddf89/lede/1564584858350-Danny-Devito.jpeg?crop=0.4964xw%3A0.8824xh%3B0.5036xw%2C0.0426xh&resize=650%3A*&output-quality=55" alt="Image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Danny Devito</strong> <small>Philosopher-king</small>
+                <br>
+                Using DYNAMIC-DEN® is the highlight of my day. Everything else has become a disappointment in comparison. I no longer truly love my wife and kids...
+              </p>
+            </div>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" aria-label="reply">
+                  <span class="icon is-small">
+                    <i class="fas fa-reply" aria-hidden="true"></i>
+                  </span>
+                </a>
+                <a class="level-item" aria-label="retweet">
+                  <span class="icon is-small">
+                    <i class="fas fa-retweet" aria-hidden="true"></i>
+                  </span>
+                </a>
+                <a class="level-item" aria-label="like">
+                  <span class="icon is-small">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </article>
+      </div>
+
+
+    </div>
   </body>
 </html>
+

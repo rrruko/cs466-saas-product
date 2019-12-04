@@ -2,6 +2,9 @@ class MainController < ApplicationController
   def index
   end
 
+  def buy
+  end
+
   def charge
     token = params['stripeToken']
     Stripe.api_key = ENV['STRIPE_SECRET_KEY']
