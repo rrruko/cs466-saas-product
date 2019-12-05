@@ -1,136 +1,107 @@
 <html>
-  <meta charset="utf-8">
-  <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous">
-  </head>
+	<meta charset="utf-8">
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" integrity="sha256-D9M5yrVDqFlla7nlELDaYZIpXfFWDytQtiV+TaH6F1I=" crossorigin="anonymous">
+	</head>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', e => {
-      document.getElementById('buy-now').addEventListener('click', e => {
-        window.location = 'buy'
-      })
-    })
-  </script>
+	<script>
+		document.addEventListener('DOMContentLoaded', e => {
+			document.getElementById('btn-buy').addEventListener('click', e => { window.location = 'buy' })
+			document.getElementById('btn-demo').addEventListener('click', e => { window.location = 'https://falcontime.herokuapp.com/' })
+		})
+	</script>
 
-  <style>
-    .box {
-      margin-left: 10em;
-      margin-right: 10em;
-    }
-    .title {
-      display: block;
-      text-align: center;
-    }
-    .button {
-      margin: auto;
-      display: block;
-      text-align: center;
-    }
-    .hero-body {
-      text-align: center;
-    }
-  </style>
+	<style>
+		.box {
+			margin-left: 10em;
+			margin-right: 10em;
+		}
+		.title {
+			display: block;
+			text-align: center;
+		}
+		.button {
+			margin: auto;
+			display: block;
+			text-align: center;
+		}
+		.hero-body {
+			text-align: center;
+		}
+	</style>
 
-  <body>
-    <div class="container">
-      <section class="hero">
-        <div class="hero-body">
-          <div class="title">DYNAMIC-DEN</div>
-          <p>
-            DYNAMIC-DEN is the best software ever made for scheduling flex time periods.
-            <br>
-            Don't bother with spreadsheet plug-ins that don't work.
-            <br>
-            Save time with DYNAMIC-DEN.
-          </p>
+	<body>
+		<div class="container">
+			<section class="hero" id="product-head"><div class="hero-body">
+				<div class="title">DYNAMIC-DEN</div>
+				<p>
+					DYNAMIC-DEN is the best software ever made for scheduling flex time periods.
+				<br>
+					Don't bother with spreadsheet plug-ins that don't work.
+				<br>
+					Save time with DYNAMIC-DEN.
+				</p>
+			</div></section>
 
-        </div>
-      </section>
+			<div id="button-parent" style="text-align:center">
+				<div id="button-container" style="display:inline-block">
+				  <button class="box button is-success" id="btn-demo" style="float:left; text-align:center; margin:10px; background-color:#82b0b8">Product Demo</button>
+				  <button class="box button is-success" id="btn-buy" style="float:left; text-align:center; margin:10px; background-color:#82b0b8">Pricing & Sign Up</button>
+				</div>
+			</div>
 
-      <button class="box button is-success" id="buy-now">
-        BUY NOW
-      </button>
+			<!--<div class="title">Customer testimonials</div>-->
 
-      <div class="title">Customer testimonials</div>
-
-      <div class="box">
-        <article class="media">
-          <div class="media-left">
-            <figure class="image is-128x128">
-              <img src="https://media.jorts.horse/horse-media/media_attachments/files/000/670/063/original/f14c59940fd41397.jpg" alt="Image">
-            </figure>
-          </div>
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <strong>Jack Nicholson</strong> <small>Principal of Jack Nicholson Middle School</small>
-                <br>
-                Before using DYNAMIC-DEN® I prayed to God each day to release me from the chains of life.
-              </p>
-            </div>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                <a class="level-item" aria-label="reply">
-                  <span class="icon is-small">
-                    <i class="fas fa-reply" aria-hidden="true"></i>
-                  </span>
-                </a>
-                <a class="level-item" aria-label="retweet">
-                  <span class="icon is-small">
-                    <i class="fas fa-retweet" aria-hidden="true"></i>
-                  </span>
-                </a>
-                <a class="level-item" aria-label="like">
-                  <span class="icon is-small">
-                    <i class="fas fa-heart" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </div>
-            </nav>
-          </div>
-        </article>
-      </div>
-
-      <div class="box">
-        <article class="media">
-          <div class="media-left">
-            <figure class="image is-128x128">
-              <img src="https://video-images.vice.com/articles/5d3f171b172d6400085ddf89/lede/1564584858350-Danny-Devito.jpeg?crop=0.4964xw%3A0.8824xh%3B0.5036xw%2C0.0426xh&resize=650%3A*&output-quality=55" alt="Image">
-            </figure>
-          </div>
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <strong>Danny Devito</strong> <small>Philosopher-king</small>
-                <br>
-                Using DYNAMIC-DEN® is the highlight of my day. Everything else has become a disappointment in comparison. I no longer truly love my wife and kids...
-              </p>
-            </div>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                <a class="level-item" aria-label="reply">
-                  <span class="icon is-small">
-                    <i class="fas fa-reply" aria-hidden="true"></i>
-                  </span>
-                </a>
-                <a class="level-item" aria-label="retweet">
-                  <span class="icon is-small">
-                    <i class="fas fa-retweet" aria-hidden="true"></i>
-                  </span>
-                </a>
-                <a class="level-item" aria-label="like">
-                  <span class="icon is-small">
-                    <i class="fas fa-heart" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </div>
-            </nav>
-          </div>
-        </article>
-      </div>
-
-
-    </div>
-  </body>
+			<div class="box">
+				<article class="media">
+					<div class="media-left">
+						<figure class="image is-128x128">
+							<img src="https://cdn.discordapp.com/attachments/109167971741466624/651938201052774411/unknown.png" alt="Picture of Stephen DuVal">
+						</figure>
+					</div>
+					<div class="media-content"><div class="content">
+						<p>
+							<strong>Stephen DuVal</strong> <small>Principal of Cascade Middle School</small>
+							<br>
+							Before using DYNAMIC-DEN®, we spent up to 45 minutes a day scheduling our students. Now we spend 5-10 minutes.
+						</p>
+					</div></div>
+				</article>
+			</div>
+			
+			<br><br><br>
+			
+			<div class="box">
+				<article class="media"><div class="media-content">
+					<div class="content">
+						<p id="product-description-goes-here">
+							<br>
+							Dynamic-DEN® is the FLEX-time software of choice for Cascade Middle School, Skyview Middle School, and Pacific Crest Middle School in Bend, OR. It allows you to:
+							<ul>
+								<li>Track student attendance - know your students are where they are supposed to be!</li>
+								<li>Create and manage activities in seconds</li>
+								<li>Easily limit the number of participants for activities</li>
+								<li>Painlessly manage your school's roster</li>
+							</ul>
+							<br>
+							<strong>But what is FLEX-time?</strong><br>
+							FLEX-time is also commonly known as a Response to Intervention (RTI) program. RTI is a school of thought that enables struggling students to get the help they need during school hours. Schools might have 1-3 "flexible" periods per week, where students can either choose an activity (like art or ping-pong) or have one assigned to them, if they need to bring a grade up. <br><br>
+							
+							RTI programs are showing up more and more in schools of all levels around the nation, but many schools try to manage scheduling through tedious spreadsheets - that is, they try and do it manually. With Dynamic-DEN®, all the hard work is done for you. You don't need faculty to double- and triple-check that students aren't signing up for the Gaming Club instead of the Math Workshop. You don't need to clear pages of activities so students can sign up again. You don't need to worry that 60 students will sign up for one activity, overloading the teacher overseeing them. <br><br>
+							
+							<strong>Get Dynamic-DEN®, so the hard part is done for you.</strong>
+						</p>
+						<!-- Place this tag in your head or just before your close body tag. -->
+						<script async defer src="https://buttons.github.io/buttons.js"></script>
+						
+						<!-- Place this tag where you want the button to render. -->
+						<a class="github-button" href="https://github.com/osu-cascades/falcon-time" aria-label="View on GitHub">See our project on GitHub!</a>
+					</div>
+					
+					<br>
+					
+				</div></article>
+			</div>
+		</div>
+	</body>
 </html>
-
