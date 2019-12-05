@@ -71,6 +71,25 @@
     .paymentBlock {
       text-align: center;
     }
+    .logoBlock{
+      display: inline;
+    }
+    .logoContainer{
+      transform: rotate(-2deg);
+      top: 10px;
+      left: 10px;
+      position: absolute;
+    }
+    .logoTriangle{
+      background: #82b0b8;
+      width: 50%;
+      height: 100px;
+      top: -60px;
+      left: -40px;
+      position: absolute;
+      z-index: -1;
+      transform: rotate(-10deg);
+    }
     .bgBlock{
       background: lightgrey;
       position: absolute;
@@ -88,6 +107,7 @@
     }
   </style>
   <body>
+    
     <div class="container">
       <h3 class="paymentBlock">Please enter your payment info</h3>
 
@@ -120,6 +140,9 @@
     </div>
     <div class="bgBlock">
       <br/>
+    </div>
+    <div class="logoTriangle">
+      <br />
     </div>
     
   </body>
