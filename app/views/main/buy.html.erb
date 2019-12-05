@@ -52,32 +52,68 @@
       });
     </script>
   </head>
+  <style type="text/css">
+    .container {
+      background-color: white;
+      margin-left: 50%;
+      width: 25%;
+      padding: 10px;
+      border-radius: 25px;
+      align-items: center;
+    }
+    .paymentBlock {
+      text-align: center;
+    }
+    .bgBlock{
+      background: lightgrey;
+      position: absolute;
+      width: 75%;
+      height: 200%;
+      top: 0;
+      animation-name: movein;
+      animation-duration: 1s;
+      animation-fill-mode: forwards;
+      z-index: -1;
+    }
+    @keyframes movein{
+      from{left:100%;}
+      to{left:45%;}
+    }
+  </style>
   <body>
-    <% if @error %>
-      <p style="color:red">Big scary</p>
-    <% end %>
-    <%= form_with(url: "/buy", method: "post", id: "payment-form") do %>
+    <div class="container">
+      <h3 class="paymentBlock">Please enter your payment info</h3>
 
-      <div class="form-row">
-        <%= label_tag("name-element", "Name") %>
-        <input id="name" name="name" required>
-      </div>
+      <% if @error %>
+        <p style="color:red">Your card was declined.</p>
+      <% end %>
+      <%= form_with(url: "/buy", method: "post", id: "payment-form") do %>
 
-      <div class="form-row">
-        <%= label_tag("email-element", "Email") %>
-        <input id="email" name="email" required>
-      </div>
-
-      <div class="form-row">
-        <%= label_tag("card-element", "Credit or debit card") %>
-        <div id="card-element">
-          <!-- A Stripe Element will be inserted here. -->
+        <div class="form-row">
+          <%= label_tag("name-element", "Name") %>
+          <input id="name" name="name" required>
         </div>
-      </div>
+        <br/>
+        <div class="form-row">
+          <%= label_tag("email-element", "Email") %>
+          <input id="email" name="email" required>
+        </div>
+        <br/>
+        <div class="form-row">
+          <%= label_tag("card-element", "Credit or debit card") %>
+          <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+          </div>
+        </div>
 
-      <!-- Used to display Element errors. -->
-      <div id="card-errors" role="alert"></div>
-      <%= submit_tag("Submit Payment") %>
-    <% end %>
+        <!-- Used to display Element errors. -->
+        <div id="card-errors" role="alert"></div>
+        <%= submit_tag("Submit Payment") %>
+      <% end %>
+    </div>
+    <div class="bgBlock">
+      <br/>
+    </div>
+    
   </body>
 </html>
