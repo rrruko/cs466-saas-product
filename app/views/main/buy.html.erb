@@ -30,9 +30,9 @@
 
         // Create an instance of the card Element.
         var card = elements.create('card', {style: style});
-
         // Add an instance of the card Element into the `card-element` <div>.
         card.mount('#card-element');
+
         // Create a token or display an error when the form is submitted.
         var form = document.getElementById('payment-form');
         form.addEventListener('submit', function(event) {
@@ -57,16 +57,27 @@
       <p style="color:red">Big scary</p>
     <% end %>
     <%= form_with(url: "/buy", method: "post", id: "payment-form") do %>
+
+      <div class="form-row">
+        <%= label_tag("name-element", "Name") %>
+        <input id="name" name="name" required>
+      </div>
+
+      <div class="form-row">
+        <%= label_tag("email-element", "Email") %>
+        <input id="email" name="email" required>
+      </div>
+
       <div class="form-row">
         <%= label_tag("card-element", "Credit or debit card") %>
         <div id="card-element">
           <!-- A Stripe Element will be inserted here. -->
         </div>
-
-        <!-- Used to display Element errors. -->
-        <div id="card-errors" role="alert"></div>
-        <%= submit_tag("Submit Payment") %>
       </div>
+
+      <!-- Used to display Element errors. -->
+      <div id="card-errors" role="alert"></div>
+      <%= submit_tag("Submit Payment") %>
     <% end %>
   </body>
 </html>
